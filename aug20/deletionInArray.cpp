@@ -16,7 +16,10 @@
 //   cout << endl;
 
 //   // deleting element
-//   for (int i = 0; i < noOfElements; i++)
+// since we are shifting elemnets to their left, 
+// the last element has laready been shifted when we were on i = n - 1
+// so we do not need to run the loop n times
+//   for (int i = 0; i < (noOfElements - 1); i++)
 //   {
 //     arr[i] = arr[i + 1];
 //   }
@@ -53,7 +56,7 @@
 //   cin >> location;
 
 //   // deleting element
-//   for (int i = location; i < noOfElements; i++)
+//   for (int i = location; i < (noOfElements - 1); i++)
 //   {
 //     arr[i] = arr[i + 1];
 //   }
@@ -99,44 +102,44 @@
 
 // generalised approach
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int main()
-{
-  int noOfElements = 5;
-  int arr[5];
-  int location;
+// int main()
+// {
+//   int noOfElements = 5;
+//   int arr[5];
+//   int location;
 
-  cout << "Enter 5 integers: " << endl;
-  for (int i = 0; i < noOfElements; i++)
-  {
-    cin >> arr[i];
-  }
-  cout << endl;
+//   cout << "Enter 5 integers: " << endl;
+//   for (int i = 0; i < noOfElements; i++)
+//   {
+//     cin >> arr[i];
+//   }
+//   cout << endl;
 
-  do
-  {
-    cout << "Enter the location of element to be deleted: ";
-    cin >> location;
-    if (location <= 0 || location > noOfElements)
-    {
-      cout << "Enter a number between 1 and 5" << endl;
-    }
-  } while (location <= 0 || location > noOfElements);
+//   do
+//   {
+//     cout << "Enter the location of element to be deleted: ";
+//     cin >> location;
+//     if (location <= 0 || location > noOfElements)
+//     {
+//       cout << "Enter a number between 1 and 5" << endl;
+//     }
+//   } while (location <= 0 || location > noOfElements);
 
-  // deleting element
-  for (int i = (location - 1); i < noOfElements; i++)
-  {
-    arr[i] = arr[i + 1];
-  }
-  noOfElements = noOfElements - 1;
+//   // deleting element
+//   for (int i = (location - 1); i < (noOfElements - 1); i++)
+//   {
+//     arr[i] = arr[i + 1];
+//   }
+//   noOfElements = noOfElements - 1;
 
-  cout << "Array after deletion: " << endl;
-  for (int i = 0; i < noOfElements; i++)
-  {
-    cout << arr[i] << "\t";
-  }
+//   cout << "Array after deletion: " << endl;
+//   for (int i = 0; i < noOfElements; i++)
+//   {
+//     cout << arr[i] << "\t";
+//   }
 
-  return 0;
-}
+//   return 0;
+// }
