@@ -16,9 +16,9 @@
 //   cout << endl;
 
 //   // deleting element
-// since we are shifting elemnets to their left, 
-// the last element has laready been shifted when we were on i = n - 1
-// so we do not need to run the loop n times
+//   // since we are shifting elements to their left, 
+//   // the last element has aready been shifted when we were on i = n - 1
+//   // so we do not need to run the loop n times
 //   for (int i = 0; i < (noOfElements - 1); i++)
 //   {
 //     arr[i] = arr[i + 1];
@@ -73,32 +73,32 @@
 
 // deleting last element of array
 
-// #include<iostream>
-// using namespace std;
+#include<iostream>
+using namespace std;
 
-// int main()
-// {
-//   int noOfElements = 5;
-//   int arr[10] = {1, 2, 3, 4, 5};
+int main()
+{
+  int noOfElements = 5;
+  int arr[10] = {1, 2, 3, 4, 5};
 
-//   cout << "Array before deletion: " << endl;
-//   for (int i = 0; i < noOfElements; i++)
-//   {
-//     cout << arr[i] << "\t";
-//   }
-//   cout << endl;
+  cout << "Array before deletion: " << endl;
+  for (int i = 0; i < noOfElements; i++)
+  {
+    cout << arr[i] << "\t";
+  }
+  cout << endl;
 
-//   // deleting element
-//   noOfElements = noOfElements - 1;
+  // deleting element
+  noOfElements = noOfElements - 1;
 
-//   cout << "Array after deletion: " << endl;
-//   for (int i = 0; i < noOfElements; i++)
-//   {
-//     cout << arr[i] << "\t";
-//   }
+  cout << "Array after deletion: " << endl;
+  for (int i = 0; i < noOfElements; i++)
+  {
+    cout << arr[i] << "\t";
+  }
 
-//   return 0;
-// }
+  return 0;
+}
 
 // generalised approach
 
