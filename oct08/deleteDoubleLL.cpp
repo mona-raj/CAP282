@@ -1,9 +1,9 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 class Node
 {
-  public:
+public:
   int data;
   Node *prev;
   Node *next;
@@ -21,7 +21,7 @@ Node *tail = NULL;
 void forwardTraverse()
 {
   Node *temp = head;
-  while(temp != NULL)
+  while (temp != NULL)
   {
     cout << temp << " " << temp->data << endl;
     temp = temp->next;
@@ -32,7 +32,7 @@ void forwardTraverse()
 void backwardTraverse()
 {
   Node *temp = tail;
-  while(temp != NULL)
+  while (temp != NULL)
   {
     cout << temp << " " << temp->data << endl;
     temp = temp->prev;
@@ -40,45 +40,51 @@ void backwardTraverse()
   cout << endl;
 }
 
-void insertAtHead(int value)
-{
-  Node *newNode = new Node(value);
-  newNode->next = head;
-  head->prev = newNode;
-  head = newNode;
-}
-
-void insertAtTail(int value)
-{
-  Node *newNode = new Node(value);
-  newNode->prev = tail;
-  tail->next = newNode;
-  tail = newNode;
-}
-
-void insertMiddle(int pos, int value)
+void deleteAtHead()
 {
   if (head == NULL)
   {
     return;
   }
-  if (head->next == NULL || pos == 1)
+  Node *curr = head;
+  head->next->prev = NULL;
+  head = head->next;
+  delete curr;
+}
+
+void deleteAtTail()
+{
+  if (tail == NULL)
   {
-    insertAtHead(value);
+    return;
+  }
+  Node *curr = tail;
+  tail->prev->next = NULL;
+  delete curr;
+}
+
+void deleteInMiddle(int pos)
+{
+  if (head == NULL)
+  {
+    return;
+  }
+  if (pos == 1)
+  {
+    deleteAtHead();
     return;
   }
   int count = 1;
   Node *temp = head;
-  while(count < (pos - 1))
+  while (count < (pos - 1))
   {
     temp = temp->next;
-    count ++;
+    count++;
   }
-  Node *newNode = new Node(value);
-  newNode->prev = temp;
-  newNode->next = temp->next;
-  temp->next->prev = newNode;
-  temp->next = newNode;
+  Node *curr = temp;
+  curr->prev->next = curr->next;
+  curr->next->prev = curr->prev;
+  delete curr;
 }
 
 int main()
@@ -101,16 +107,16 @@ int main()
   cout << "Original Linked List: " << endl;
   forwardTraverse();
 
-  insertAtHead(50);
-  cout << "After insertion at head: " << endl;
-  forwardTraverse();
+  // deleteAtHead();
+  // cout << "After deletion at head: " << endl;
+  // forwardTraverse();
 
-  insertAtTail(60);
-  cout << "After insertion at tail: " << endl;
-  forwardTraverse();
-  
-  insertMiddle(3, 60);
-  cout << "After insertion in middle: " << endl;
+  // deleteAtTail();
+  // cout << "After deletion at tail: " << endl;
+  // forwardTraverse();
+
+  deleteInMiddle(2);
+  cout << "After deletion in middle: " << endl;
   forwardTraverse();
 
   return 0;
